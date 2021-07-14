@@ -40,8 +40,6 @@ Menu() {
     3) App="org.educaolinda.app" ; atividade="org.aprendendosempre.app.main.MainActivity" ; nome="EducaOlinda" ; E1="3";;   
     4) App="com.conectauneb.reach4all" ; atividade="com.datami.reachall.SplashScreen" ; nome="ConectaUneb" ; E1="4";;
     5) App="br.sc.gov.ciasc.sed.inp" ; atividade=".MainActivity" ; nome="SalaEstudanteSC" ; E1="5";;
-    6) App="br.estacio.estaciomobile" ; atividade="br.estacio.mobile.MainActivity" ; nome="MinhaEstacio" ; E1="6";;
-    7) App="br.gov.prodemge.conexaoescola" ; atividade=".SplashActivity" ; nome="ConexaoEscola" ; E1="7";;
     8) App="br.gov.es.sedu.educacao" ; atividade=".MenuActivity" ; nome="EscoLAR" ; E1="8";;
     9) App="br.com.procergs.tuaescola" ; atividade=".MainActivity" ; nome="EscolaProfessorRS" ; E1="9";;
     10) App="br.com.procergs.estudante" ; atividade=".MainActivity" ; nome="EscolaEstudanteRS" ; E1="10";;
