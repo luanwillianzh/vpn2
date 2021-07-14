@@ -79,7 +79,7 @@ check(){
      esac
 }
 check
-sleep 2 && bash $HOME/vpn2/download
+sleep 2 && bash $HOME/vpn2/ovpnsu
 }
 App21(){
 clear

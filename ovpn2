@@ -1,5 +1,5 @@
 #!/bin/bash
-clear && sleep 2 && echo "DICA": ; echo ; echo "PROCUREM SEUS PROPRIOS APPS DE" ; echo "ESCOLA, MODIFIQUE PELO APP CLONER" ; echo "USE A OPÇÃO APP PERSONALIZADO" && echo "E NÃO MANDE PRA NINGUÉM" ; sleep 8 && clear
+clear && sleep 2 && echo "DICA:" ; echo ; echo "PROCUREM SEUS PROPRIOS APPS DE" ; echo "ESCOLA, MODIFIQUE PELO APP CLONER," ; echo "USE A OPÇÃO APP PERSONALIZADO" && echo "E NÃO MANDE PRA NINGUÉM!" ; sleep 8 && clear
 Menu() {
     clear
    echo "    ================================"
@@ -28,13 +28,18 @@ Menu() {
     echo "           [ 14 ] - Escola Igarassu"
     echo "           [ 15 ] - Princesa Educa+"
     echo "           [ 16 ] - ConquistApp"
-    echo "           [ 17 ] - CMSP (Alunos)"
-    echo "           [ 18 ] - Rio Educa Em Casa (Alunos)"
-    echo "           [ 19 ] - Aulas Parana (Alunos)"
-    echo "           [ 20 ] - Applique-se (Alunos)"    
+   echo "       ================================"
+    echo
+    echo "           APPS PARA ALUNOS E EXTRAS"
+   echo "       ================================"
+    echo "           [ 17 ] - CMSP"
+    echo "           [ 18 ] - Rio Educa Em Casa"
+    echo "           [ 19 ] - Aulas Parana"
+    echo "           [ 20 ] - Applique-se"    
     echo "           [ 21 ] - App Personalizado"
     echo "           [ 22 ] - Atalho (Termux-Widget)"
     echo "           [ 23 ] - Baixar Apps"
+    echo "            [ 0 ] - Sair do Script"
    echo "       ================================"
     echo "@luanw04"
     echo "@alpacinoo007"
@@ -64,6 +69,7 @@ Menu() {
     21) App21;;
     22) App22;;
     23) App23;;
+      0) clear ; exit ;;
     *) "Calma Barboleta" ; echo ; Menu;;
     esac
     connect
@@ -79,7 +85,7 @@ clear
 cd $HOME && cd .shortcuts && echo "bash $HOME/ovpn" > "OPEN VPN" && chmod +x "OPEN VPN" && chmod 777 "OPEN VPN" && cd && clear && echo "ATALHO CRIADO COM SUCESSO" ; echo "AGORA BAIXE O TERMUX-WIDGET" && sleep 5 && clear && bash $HOME/vpn2/ovpn2 
 }
 App21(){
-clear && echo "PARA QUE FUNCIONE VOCÊ PRECISA" ; echo "EDITAR O APP DE ESCOLA ANTES" ; echo "E LIBERAR O ACESSO A PASTA DATA"&& sleep 7 && clear
+clear && echo "PARA QUE FUNCIONE VOCÊ PRECISA" ; echo "CLONAR O APP DE ESCOLA ANTES" ; echo "E LIBERAR O ACESSO A PASTA DATA"&& sleep 7 && clear
 echo -e "ㅤㅤㅤ \emCole o nome do pacote\em"
 read App
 echo
@@ -94,6 +100,14 @@ connect
 
 connect () {
 clear
+check5(){
+      apps=$(test -d "/data/data/$App" && echo 1)
+    case $apps in
+     1) clear ;;
+     *) echo "APLICATIVO NÃO ENCONTRADO!" ; echo ; echo "REDIRECIONANDO PARA AREA DE DOWNLOADS..." && sleep 5 && bash $HOME/vpn2/download2 ;;
+     esac
+}
+check5
 check1() {
     vpn=$(ifconfig | grep -c tun0)
     case $vpn in
@@ -106,7 +120,7 @@ check2() {
     conf=$(test -f "/data/data/$App/cache/android.conf" && echo 1)
     case $conf in
     1) clear && sleep 2 && echo "ARQUIVO .CONF ENCONTRADO!" ; echo ; echo ; echo "CONTINUANDO O PROCESSO..." && sleep 5 && cp /data/data/$App/cache/android.conf /storage/emulated/0/Download/$nome.ovpn && rm /data/data/$App/cache/android.conf && echo -e "<auth-user-pass>\nAuth\npassword\n</auth-user-pass>\nhttp-proxy paws-tbr-sdgw.datami.net 8043\n--verify-client-cert none" >> /storage/emulated/0/Download/$nome.ovpn && termux-open --chooser /storage/emulated/0/Download/$nome.ovpn --content-type "application/x-openvpn-profile" && exit ;;
-    *) echo "ARQUIVO NECESSARIO PARA CONTINUAR" ; echo "O PROCESSO NÃO FOI ENCONTRADO!" && sleep 4 && clear && echo "VOCÊ SERÁ REDIRECIONADO PARA O APP" ; echo "DE ESCOLA ESCOLHIDO PARA GERAR A" ; echo "CHAVINHA E O ARQUIVO" && sleep 8 && clear && echo "QUANDO A CHAVINHA APARECER, FECHE" ; echo "O APLICATIVO DE ESCOLA PARA SER" ; echo "REDIRECIONADO PARA O OPEN VPN" && sleep 6 && am start -n $App/$atividade;;
+    *) echo "ARQUIVO NECESSARIO PARA CONTINUAR" ; echo "O PROCESSO NÃO FOI ENCONTRADO!" && sleep 4 && clear && echo "VOCÊ SERÁ REDIRECIONADO PARA O APP" ; echo "DE ESCOLA ESCOLHIDO PARA GERAR A" ; echo "CHAVINHA E O ARQUIVO" && sleep 7 && clear && echo "QUANDO A CHAVINHA APARECER, FECHE" ; echo "O APLICATIVO DE ESCOLA PARA SER" ; echo "REDIRECIONADO PARA O OPEN VPN" && sleep 6 && am start -n $App/$atividade;;
     esac
 }
 check2

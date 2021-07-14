@@ -1,5 +1,5 @@
 #!/bin/bash
-clear && sleep 1 && echo "DICA": ; echo ; echo "USEM OS APPS DE CONEXÃO FORÇADA" ; echo "QUE SÃO OS MELHORES" && sleep 4 && clear
+clear && sleep 1 && echo "DICA:" ; echo ; echo "USEM OS APPS DE CONEXÃO FORÇADA" ; echo "QUE SÃO OS MELHORES" && sleep 4 && clear
 Menu() {
     clear
    echo "      ================================"
@@ -42,6 +42,7 @@ Menu() {
     echo "             [ 23 ] - Change DNS"
     echo "             [ 24 ] - Atalho (Termux-Widget)"
     echo "             [ 25 ] - Baixar Apps"
+    echo "              [ 0 ] - Sair do Script"
    echo "         ================================"
     echo "@luanw04"
     echo "@alpacinoo007"
@@ -73,6 +74,7 @@ Menu() {
    23) App23;; 
    24) App24;;
    25) App25;;
+     0) clear ; exit;;
     *) "Calma Barboleta" ; echo ; Menu;;
     esac
     connect
@@ -113,7 +115,7 @@ check5(){
       apps=$(test -d "/data/data/$App" && echo 1)
     case $apps in
      1) clear ;;
-     *) echo "APLICATIVO NÃO ENCONTRADO!" ; echo ; echo "REDIRECIONANDO PARA DOWNLOADS..." && sleep 5 && bash $HOME/vpn2/download ;;
+     *) echo "APLICATIVO NÃO ENCONTRADO!" ; echo ; echo "REDIRECIONANDO PARA A AREA DE DOWNLOADS..." && sleep 5 && bash $HOME/vpn2/download ;;
      esac
 }
 check5
